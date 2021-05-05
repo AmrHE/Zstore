@@ -1,10 +1,12 @@
-import React from 'react';
+export { default } from './products';
 
-const indexPage = () => (
-  <div>
-    <h2>Hello!</h2>
-    <h3>Yoyoyoyo</h3>
-  </div>
-);
+// import React from 'react';
 
-export default indexPage;
+// const indexPage = () => (
+//   <div>
+//     <h2>Hello!</h2>
+//     <h3>Yoyoyoyo</h3>
+//   </div>
+// );
+
+// export default indexPage;
