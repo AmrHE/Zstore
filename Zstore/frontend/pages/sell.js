@@ -1,8 +1,8 @@
-import React from 'react';
+import CreateProduct from '../components/CreateProduct';
 
 const sellPage = () => (
   <div>
-    <h1>Hello!</h1>
+    <CreateProduct />
   </div>
 );
 
