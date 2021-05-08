@@ -6,10 +6,15 @@ const CreateProduct = () => {
     name: 'AirForce',
     description: 'nice shoes',
     price: 1000,
+    image: '',
   });
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(inputs);
+  };
   return (
-    <Form>
+    <Form onSubmit={handleSubmit}>
       <fieldset aria-busy>
         <label htmlFor="name">
           Name
@@ -25,6 +30,7 @@ const CreateProduct = () => {
         <label htmlFor="image">
           Upload an Image
           <input
+            required
             type="file"
             id="image"
             name="image"
@@ -45,8 +51,7 @@ const CreateProduct = () => {
         </label>
         <label htmlFor="description">
           Description
-          <input
-            type="text"
+          <textarea
             id="description"
             name="description"
             placeholder="description"
