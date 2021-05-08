@@ -21,7 +21,7 @@ const useForm = (initial = {}) => {
     }
 
     if (type === 'file') {
-      value[0] = e.target.files;
+      [value] = e.target.files;
     }
 
     setInputs({
