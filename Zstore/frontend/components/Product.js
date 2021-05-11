@@ -4,6 +4,7 @@ import ItemStyles from './styles/ItemStyles';
 import Title from './styles/Title';
 import PriceTag from './styles/PriceTag';
 import formatPrice from '../lib/formatPrice';
+import DeleteProduct from './DeleteProduct';
 
 const Product = ({ product }) => (
   <div>
@@ -20,16 +21,16 @@ const Product = ({ product }) => (
       <div className="buttonList">
         <Link
           href={{
-            pathname: 'update',
+            pathname: '/update',
             query: {
               id: product.id,
             },
           }}
         >
-          Edit
+          Edit ✏️
         </Link>
+        <DeleteProduct id={product.id}>Delete</DeleteProduct>
       </div>
-      {/* TODO: Add buttons to delete item */}
     </ItemStyles>
   </div>
 );
