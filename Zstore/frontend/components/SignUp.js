@@ -3,7 +3,6 @@ import gql from 'graphql-tag';
 import useForm from '../lib/useForm';
 import DisplayError from './ErrorMessage';
 import Form from './styles/Form';
-import { CURRENT_USER_QUERY } from './User';
 
 const SIGNUP_MUTATION = gql`
   mutation SIGNUP_MUTATION(
@@ -26,7 +25,7 @@ const SignUp = () => {
     password: '',
   });
 
-  const [signup, { loading, data }] = useMutation(SIGNUP_MUTATION, {
+  const [signup, { loading, data, error }] = useMutation(SIGNUP_MUTATION, {
     variables: inputs,
     // // Refetch the currently logged in user
     // refetchQueries: [{ query: CURRENT_USER_QUERY }],
@@ -35,23 +34,32 @@ const SignUp = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log({ inputs });
-    const res = await signup();
+    const res = await signup().catch(console.error);
     console.log({ res });
+    console.log({ loading, data, error });
     resetForm();
     // Send the email and password to the GraphQL API
+
+    // TODO: Redirect to the created user account page!
   };
 
-  const error =
-    data?.authenticateUserWithPassword.__typename ===
-    'UserAuthenticationWithPasswordFailure'
-      ? data?.authenticateUserWithPassword
-      : undefined;
+  // const error =
+  //   data?.authenticateUserWithPassword.__typename ===
+  //   'UserAuthenticationWithPasswordFailure'
+  //     ? data?.authenticateUserWithPassword
+  //     : undefined;
 
   return (
     <Form method="POST" onSubmit={handleSubmit}>
       <h2>Sign Up For an Account</h2>
       <DisplayError error={error} />
       <fieldset>
+        {data?.createUser && (
+          <p>
+            Signed Up with {data.createUser.email} - Please go ahead and Sign
+            in!
+          </p>
+        )}
         <label htmlFor="name">
           Name
           <input
