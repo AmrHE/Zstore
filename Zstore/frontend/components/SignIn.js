@@ -42,6 +42,8 @@ const SignIn = () => {
     console.log({ res });
     resetForm();
     // Send the email and password to the GraphQL API
+
+    // TODO: Redirect to the created user account page!
   };
 
   const error =
