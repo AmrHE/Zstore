@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import formatPrice from '../lib/formatPrice';
 
 const CartItem = ({ cartItem }) => {
-  console.log('');
   if (!cartItem.product) return null;
 
   return (
@@ -15,8 +14,8 @@ const CartItem = ({ cartItem }) => {
       <div>
         <h3>{cartItem.product.name}</h3>
         <p>
-          {formatPrice(cartItem.product.price)} x {cartItem.quantity} ={' '}
-          {formatPrice(cartItem.product.price * cartItem.quantity)}
+          {formatPrice(cartItem.product.price)} &times; {cartItem.quantity} ={' '}
+          <em>{formatPrice(cartItem.product.price * cartItem.quantity)}</em>
         </p>
       </div>
     </CartItemStyles>
