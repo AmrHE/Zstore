@@ -13,7 +13,6 @@ const SignOut = () => {
     refetchQueries: [{ query: CURRENT_USER_QUERY }],
   });
 
-  console.log('');
   return (
     <button type="button" onClick={signout}>
       Sign Out
