@@ -4,7 +4,7 @@ import { list } from '@keystone-next/keystone/schema';
 export const CartItem = list({
   ui: {
     listView: {
-      initialColumns: ['id', 'product', 'quantity', 'user'],
+      initialColumns: ['product', 'quantity', 'user'],
     },
   },
   fields: {
