@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import formatPrice from '../lib/formatPrice';
+import RemoveFromCart from './RemoveFromCart';
 
 const CartItem = ({ cartItem }) => {
   if (!cartItem.product) return null;
@@ -18,6 +19,7 @@ const CartItem = ({ cartItem }) => {
           <em>{formatPrice(cartItem.product.price * cartItem.quantity)}</em>
         </p>
       </div>
+      <RemoveFromCart id={cartItem.id} />
     </CartItemStyles>
   );
 };
