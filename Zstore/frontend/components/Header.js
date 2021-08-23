@@ -3,6 +3,7 @@ import Link from 'next/link';
 import styled from 'styled-components';
 import Nav from './Nav';
 import Cart from './Cart';
+import Search from './Search';
 
 const Header = () => (
   <HeaderStyles>
@@ -13,7 +14,7 @@ const Header = () => (
       <Nav />
     </div>
     <div className="sub-bar">
-      <p>Search Bar</p>
+      <Search />
     </div>
     <Cart />
   </HeaderStyles>
